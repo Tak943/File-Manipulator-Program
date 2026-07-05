@@ -14,11 +14,11 @@ def reverse():
             line = f.readline()
             if line == "":
                 break
-            contents.append(line)
+            contents.append(line.rstrip("\n"))
     
     with open(outputpath, "w") as f:
         for line in contents[::-1]:
-            f.write(line)
+            f.write(line + "\n")
 
 if commandname == "reverse":
     reverse()
