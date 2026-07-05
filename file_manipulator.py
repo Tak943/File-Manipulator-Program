@@ -20,5 +20,25 @@ def reverse():
         for line in contents[::-1]:
             f.write(line + "\n")
 
-if commandname == "reverse":
-    reverse()
+
+def copy():
+    with open(inputpath) as f:
+        contents = []
+        while True:
+            line = f.readline()
+            if line == "":
+                break
+            contents.append(line.rstrip("\n"))
+    
+    with open(outputpath, "w") as f:
+        for line in contents:
+            f.write(line + "\n")
+
+
+match commandname:
+    case "reverse":
+        reverse()
+    case "copy":
+        copy()
+    case _:
+        print("有効なコマンドを入力してください")
